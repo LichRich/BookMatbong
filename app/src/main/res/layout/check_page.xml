@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CheckPage">
+
+    <TextView
+        android:id="@+id/check_window_name"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="예약 조회하기"/>
+
+    <ImageButton
+        android:id="@+id/check_btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/check_window_name" />
+
+    <ImageButton
+        android:id="@+id/check_btn_edit"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        app:layout_constraintRight_toLeftOf="@+id/check_btn_delete"
+        app:layout_constraintTop_toTopOf="@id/check_window_name"
+        android:layout_marginRight="10sp"
+        android:src="@drawable/edit"
+        android:background="@android:color/transparent"/>
+
+    <LinearLayout
+        android:id="@+id/name_horizon_sort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/check_window_name"
+        android:orientation="horizontal"
+        android:layout_marginTop="20sp">
+
+        <TextView
+            android:id="@+id/check_tag_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="이름 : "/>
+
+        <EditText
+            android:id="@+id/check_client_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="이름을 입력하세요."
+            android:textSize="20sp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/phone_horizon_sort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/name_horizon_sort"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/check_tag_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="휴대폰 : "/>
+
+        <EditText
+            android:id="@+id/check_client_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="휴대폰 번호를 입력하세요."
+            android:textSize="20sp"
+            android:inputType="phone"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/check_btn_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="예약 조회"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/phone_horizon_sort"
+        android:layout_marginTop="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/check_btn_check"
+        app:layout_constraintBottom_toTopOf="@id/check_btn_ok"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/name_horizon_sort_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/check_btn_check"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/result_tag_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="이름 : "/>
+
+            <TextView
+                android:id="@+id/result_client_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/count_horizontal_sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/name_horizon_sort_2"
+            android:orientation="horizontal"
+            android:layout_marginTop="20sp">
+
+            <TextView
+                android:id="@+id/result_tag_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="인원 수 : "/>
+
+            <TextView
+                android:id="@+id/result_client_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/packing_horizontal_sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/count_horizontal_sort"
+            android:orientation="horizontal"
+            android:layout_marginTop="20sp">
+
+            <TextView
+                android:id="@+id/result_tag_packing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="포장여부 : "/>
+
+            <TextView
+                android:id="@+id/result_client_packing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu_horizontal_sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/packing_horizontal_sort"
+            android:orientation="horizontal"
+            android:layout_marginTop="20sp">
+
+            <TextView
+                android:id="@+id/result_tag_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="주문 메뉴 : "/>
+
+            <TextView
+                android:id="@+id/result_client_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/time_horizontal_sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/menu_horizontal_sort"
+            android:orientation="horizontal"
+            android:layout_marginTop="20sp">
+
+            <TextView
+                android:id="@+id/result_tag_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="예약 시간 : "/>
+
+            <TextView
+                android:id="@+id/result_client_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/check_btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="확인"
+        android:textSize="25sp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
