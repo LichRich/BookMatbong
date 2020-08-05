@@ -172,15 +172,37 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/client_time"
+    <LinearLayout
+        android:id="@+id/client_dateTimeSet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/count_vertical_sort"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="날짜 입력"
-        android:layout_marginBottom="10dp"/>
+        app:layout_constraintTop_toBottomOf="@id/count_vertical_sort"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/client_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/count_vertical_sort"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="날짜 입력"
+            android:layout_weight="1"
+            android:onClick="showDatePickerDialog"/>
+
+        <Button
+            android:id="@+id/client_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/count_vertical_sort"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="시간 입력"
+            android:layout_weight="1"
+            android:onClick="showTimePickerDialog"/>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_list"
@@ -188,7 +210,7 @@
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btn_ok"
-        app:layout_constraintTop_toBottomOf="@+id/client_time" />
+        app:layout_constraintTop_toBottomOf="@+id/client_dateTimeSet" />
 
     <Button
         android:id="@+id/btn_ok"

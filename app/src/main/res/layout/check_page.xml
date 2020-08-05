@@ -6,31 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".CheckPage">
 
-    <TextView
-        android:id="@+id/check_window_name"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50sp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="예약 조회하기"/>
-
-    <ImageButton
-        android:id="@+id/check_btn_delete"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/check_window_name" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        android:id="@+id/check_window_name">
 
-    <ImageButton
-        android:id="@+id/check_btn_edit"
-        android:layout_width="30sp"
-        android:layout_height="30sp"
-        app:layout_constraintRight_toLeftOf="@+id/check_btn_delete"
-        app:layout_constraintTop_toTopOf="@id/check_window_name"
-        android:layout_marginRight="10sp"
-        android:src="@drawable/edit"
-        android:background="@android:color/transparent"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="예약 조회하기"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:gravity="right">
+
+                <ImageButton
+                    android:id="@+id/check_btn_edit"
+                    android:layout_width="25sp"
+                    android:layout_height="25sp"
+                    android:layout_marginRight="10sp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit"/>
+
+                <ImageButton
+                    android:id="@+id/check_btn_delete"
+                    android:layout_width="25sp"
+                    android:layout_height="25sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10sp"
+                    android:background="@drawable/delete" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/name_horizon_sort"
