@@ -17,13 +17,13 @@ import androidx.fragment.app.DialogFragment;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class BookPage extends Activity implements View.OnClickListener {
     private EditText book_client_name, book_client_phone;
     private RadioGroup group;
     private RadioButton radio_hall, radio_pack;
-    private Button btn_decrease, btn_increase, client_date, client_time, btn_ok;
+    private Button btn_decrease, btn_increase, btn_ok;
+    protected Button client_date, client_time;
     private TextView book_client_count;
     private String name, phone;
     private boolean packing;
@@ -99,8 +99,8 @@ public class BookPage extends Activity implements View.OnClickListener {
             update_data.put("phone", phone);
             update_data.put("packing", packing);
             update_data.put("number", count);
-            update_data.put("date", client_date);
-            update_data.put("date", client_time);
+            update_data.put("date", client_date.getText());
+            update_data.put("date", client_time.getText());
 
 
             /**
