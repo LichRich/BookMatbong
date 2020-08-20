@@ -14,14 +14,22 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class BookPage extends Activity implements View.OnClickListener {
-    EditText book_client_name, book_client_phone;
-    RadioGroup group;
-    RadioButton radio_hall, radio_pack;
-    Button btn_decrease, btn_increase, client_date, client_time, btn_ok;
-    TextView book_client_count;
-    String name, phone, hall, pack;
-    int count;
+    private EditText book_client_name, book_client_phone;
+    private RadioGroup group;
+    private RadioButton radio_hall, radio_pack;
+    private Button btn_decrease, btn_increase, client_date, client_time, btn_ok;
+    private TextView book_client_count;
+    private String name, phone;
+    private boolean packing;
+    private int count;
+
+    private FirebaseFirestore db;
 
     public static Activity bookPage;
 
@@ -36,6 +44,20 @@ public class BookPage extends Activity implements View.OnClickListener {
         group = (RadioGroup) findViewById(R.id.radio_btns);
         radio_hall = (RadioButton) findViewById(R.id.radio_hall);
         radio_pack = (RadioButton) findViewById(R.id.radio_pack);
+        if (radio_hall.isChecked()) packing = false;
+        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int id) {
+                switch (id){
+                    case R.id.radio_hall:
+                        packing = false;
+                        break;
+                    case R.id.radio_pack:
+                        packing = true;
+                        break;
+                }
+            }
+        });
 
         btn_decrease = (Button) findViewById(R.id.btn_decrease);
         btn_decrease.setOnClickListener(this);
@@ -47,6 +69,8 @@ public class BookPage extends Activity implements View.OnClickListener {
         client_date = (Button) findViewById(R.id.client_date);
         client_time = (Button) findViewById(R.id.client_time);
         btn_ok = (Button) findViewById(R.id.btn_ok);
+
+        db = FirebaseFirestore.getInstance();
 
         bookPage = BookPage.this;
     }
@@ -66,6 +90,18 @@ public class BookPage extends Activity implements View.OnClickListener {
 
         if (view.equals(btn_ok)){
             Intent intent = new Intent(this, MainActivity.class);
+
+            name = book_client_name.getText().toString();
+            phone = book_client_phone.getText().toString();
+
+            HashMap<String, Object> update_data = new HashMap<>();
+            update_data.put("name", name);
+            update_data.put("phone", phone);
+            update_data.put("packing", packing);
+            update_data.put("number", count);
+            update_data.put("date", client_date);
+            update_data.put("date", client_time);
+
 
             /**
              * 여기에 firebase에 정보 입력하고, 해당 데이터들을 intent에 넘겨주는 코드 작성.
